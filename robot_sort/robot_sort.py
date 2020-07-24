@@ -95,25 +95,46 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
-        Bubble Sort
-        Use the robot light to indicate if swappin
+        
+        Insertion Sort
+        I use robot light to indicate if I am at the end of the list or not
+        As long as light is off, that means I am not at the end.
+
+        Robot grabs the first item.
+        As long as it can move to right, it moves right and compares the item.
+            If held item is greater, it swaps and grabs the smaller item.
+
+        After it reaches to the end of the list, it's holding the smallest item.
+        It moves to left until it finds the empty spot in the list.
+            When it finds empty spot, it puts it the item back and moves to right.
+        
+        If this new place is the end of the list, that means every item is sorted.
         """
         # Fill this out
-        while self.light_is_on() is False:
-            self.set_light_on()
-
+        while not self.light_is_on():
+            self.swap_item()
             while self.can_move_right():
-                self.swap_item()
                 self.move_right()
-                if self.compare_item() > 0:
+                if self.compare_item() >= 0:
                     self.swap_item()
-                    self.set_light_off()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
 
-            while self.can_move_left(): # Make sure the robot goes back to the beginning of the list
+            while self.compare_item() is not None:
                 self.move_left()
+            self.swap_item()
+            self.move_right()
+            
+            if not self.can_move_right():
+                self.set_light_on()
+
+
+
+
+
+
+
+
+            # while self.can_move_left(): # Make sure the robot goes back to the beginning of the list
+            #     self.move_left()
 
 
 if __name__ == "__main__":
