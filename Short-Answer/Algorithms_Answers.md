@@ -20,6 +20,8 @@ However, mathmatically, there is an optimal solution if we are being greedy with
 I would find the `n` in this equation for the number of maximum floors.
 Let's say there is 100 floors. I would find the sum of `n` numbers that would be less than or equal to the floor number, 100. (1+2+3+4+5+.....+13)
 I would start a counter from 1 and start throwing eggs starting from the biggest number in the sequence (13) and increase my counter by that number if it doesn't break.
-Let's say we throw it from floor 13 and it did not break. We increase the counter by 13 (now it's 14) and this time throw it from 13+12 (25th) floor (also save this value for maximum tried floor value). Let's assume it broke. This time, we start throwing eggs from the last counter value by increasing the floor one each time until we find the `f`. So far we know that value `f` is greater than or equal to our counter value and less than our maximum tried floor.
-Maximum try it would take to find the floor is:
-`n(n+1)/2 + (max_floor - n(n+1)/2)`
+Let's say we throw it from floor 13 and it did not break. We increase the counter by 13 (now it's 14) and this time throw it from 13+12 (25th) floor (also save this value for maximum tried floor value). Let's assume it broke. This time, we start throwing eggs from the last counter value by increasing the floor by one each time until we find the `f`. So far we know that value `f` is greater than or equal to our counter value and less than our maximum tried floor.
+
+- We would only crack two eggs.
+- Maximum try it would take to find the floor is:
+  `n(n+1)/2 + (max_floor - n(n+1)/2)`
