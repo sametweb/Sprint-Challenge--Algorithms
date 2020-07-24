@@ -95,6 +95,8 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        Bubble Sort
+        Use the robot light to indicate if swappin
         """
         # Fill this out
         while self.light_is_on() is False:
